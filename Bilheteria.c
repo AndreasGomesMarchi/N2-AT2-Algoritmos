@@ -203,7 +203,7 @@ void exibirFilmes(Filme filmes[FILMES]) {
 
 // Função para exibir assentos disponíveis
 void exibirAssentos(Filme *filme) {
-    printf("\nAssentos Disponíveis (D para Disponível, X para Ocupado):\n\n");
+    printf("\nAssentos Disponiveis (D para Disponivel, X para Ocupado):\n\n");
 
     printf("    "); 
     for (int i = 0; i < COLUNAS; i++) {
@@ -289,15 +289,15 @@ void cancelarBilhete(Bilhete *bilhetes, int *numeroCadastro, Filme filmes[FILMES
 
             // Atualizar os totais
             if (*totalIngressos > 0) {
-                (*totalIngressos)--; // Reduz o número de ingressos vendidos
+                (*totalIngressos)--; 
             }
             if (bilhetes[i].combo && *totalCombos > 0) {
-                (*totalCombos)--; // Reduz o número de combos vendidos
+                (*totalCombos)--; 
             }
             if (*totalArrecadado >= bilhetes[i].valorIngresso) {
-                (*totalArrecadado) -= bilhetes[i].valorIngresso; // Subtrai o valor do ingresso cancelado
+                (*totalArrecadado) -= bilhetes[i].valorIngresso; 
             } else {
-                printf("\nErro: valor arrecadado é insuficiente para subtrair. Verifique a lógica.\n");
+                printf("\nErro: valor arrecadado e insuficiente para subtrair\n");
             }
 
             // Remover o bilhete cancelado
@@ -307,6 +307,7 @@ void cancelarBilhete(Bilhete *bilhetes, int *numeroCadastro, Filme filmes[FILMES
             (*numeroCadastro)--;
 
             printf("\nBilhete cancelado com sucesso!\n");
+            printf("O valor do bilhete foi devolvido!");
             encontrado = 1;
             break;
         }
@@ -321,7 +322,7 @@ void cancelarBilhete(Bilhete *bilhetes, int *numeroCadastro, Filme filmes[FILMES
 
 // Função para calcular e exibir o relatório final
 void gerarRelatorioFinal(int totalIngressos, int totalCombos, double totalArrecadado) {
-    printf("\n-------- Relatório Final --------\n");
+    printf("\n-------- Relatorio Final --------\n");
     printf("Total de ingressos vendidos: %d\n", totalIngressos);
     printf("Total de combos vendidos: %d\n", totalCombos);
     printf("Total arrecadado: R$ %.2f\n", totalArrecadado);
