@@ -1,4 +1,4 @@
-//Criadores desse programa: FNatanaelRamos97, AndreasGomesMarchi, 
+//Criadores desse programa: FNatanaelRamos97, AndreasGomesMarchi, Ghlxavier e 
 
 
 #include <stdio.h>
