@@ -1,5 +1,8 @@
-//Criadores desse programa: FNatanaelRamos97, AndreasGomesMarchi, Ghlxavier e 
-
+//Criadores desse programa: 
+//-FNatanaelRamos97 - https://github.com/FNatanaelRamos97
+//-AndreasGomesMarchi - https://github.com/AndreasGomesMarchi
+//-Ghlxavier - https://github.com/Ghlxavier
+//-rafasilva41 - https://github.com/rafasilva41
 
 #include <stdio.h>
 #include <stdlib.h>
