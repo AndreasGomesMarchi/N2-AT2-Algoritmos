@@ -1,3 +1,6 @@
+//Criadores desse programa: FNatanaelRamos97, AndreasGomesMarchi, 
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
