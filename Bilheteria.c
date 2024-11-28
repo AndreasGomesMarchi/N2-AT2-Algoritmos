@@ -104,10 +104,10 @@ void Interface() {
 
     printf("Seja Bem-vindo ao melhor cinema de Hallownest!!!\n\n");
     printf("Escolha uma opcao da bilheteira:\n");
-    printf("Reservar lugar - [1]\n");
-    printf("Impressao do bilhete - [2]\n");
-    printf("Cancelar compra - [3]\n");
-    printf("Sair - [4]\n");
+    printf("1 - Reservar lugar\n");
+    printf("2 - Impressao do bilhete\n");
+    printf("3 - Cancelar compra\n");
+    printf("4 - Sair\n");
     printf("Escolha a opcao: ");
 }
 
