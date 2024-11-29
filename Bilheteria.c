@@ -40,6 +40,7 @@ void cancelarBilhete();
 
 // Impressão dos bilhetes reservados
 void imprimirBilhetesReservados();
+void imprimirBilhete();
 
 // Funções para calcular totais e relatório final
 void gerarRelatorioFinal();
@@ -260,18 +261,76 @@ int combo() {
 
 // Função para imprimir bilhetes reservados
 void imprimirBilhetesReservados(Bilhete *bilhetes, int numeroCadastro, Filme filmes[FILMES]) {
-    printf("\n-------- Bilhetes Reservados --------\n");
-    for (int i = 0; i < numeroCadastro; i++) {
-        Bilhete bilhete = bilhetes[i];
-        printf("\nBilhete ID: %d\n", bilhete.bilheteID);
-        printf("Cliente: %s\n", bilhete.nomeCliente);
-        printf("Filme: %s\n", filmes[bilhete.filmeID].nome);
-        printf("Assento: Fila %d, Coluna %d\n", bilhete.fila + 1, bilhete.coluna + 1);
-        printf("Meia Entrada: %s\n", bilhete.meiaEntrada ? "Sim" : "Nao");
-        printf("Combo: %s\n", bilhete.combo ? "Sim" : "Nao");
-        printf("Valor Total: R$ %.2f\n", bilhete.valorIngresso);  
-        printf("-------------------------------------\n\n");
-    }
+	int i, numeroBilhete = 0, op = 1, selecionar = 0;
+	
+	do{
+		printf("Selecione as opcao abaixo!\n\n");
+		printf("1 - Imprimir todos os bilhetes.\n");
+		printf("2 - Buscar bilhete por ID.\n\n");
+		printf("Digite a opcao: ");
+		scanf("%d", &selecionar);
+		
+		switch(selecionar){
+			case 1:
+				if(numeroCadastro == 0){
+					printf("Sem bilhetes para pesquisa\n\n");
+				}else{
+					for (i = 0; i < numeroCadastro; i++) {
+						Bilhete bilhete = bilhetes[i];
+						imprimirBilhete(bilhete, filmes);
+					}
+				}
+			break;
+
+			case 2:
+				if(numeroCadastro == 0){
+					printf("Sem bilhetes para pesquisa\n\n");
+				}else{
+					do{
+						printf("Digite ID do bilhete para a pesquisa: ");
+						scanf("%d", &numeroBilhete);
+						
+					    for (i = 0; i < numeroCadastro; i++) {
+					        Bilhete bilhete = bilhetes[i];
+					        
+					        if(bilhete.bilheteID == numeroBilhete){
+					        	imprimirBilhete(bilhete, filmes);
+						        
+						        break;
+							}else if(i == numeroCadastro-1){
+								printf("Bilhete nao encontrado!\n\n");
+							}
+						}
+					    
+					    printf("Deseja pesquisar outro bilhete 1 - SIM e 2 - NAO: ");
+					    scanf("%d", &op);
+			
+					}while(op == 1);
+				}
+			break;
+				
+			default:
+				printf("Opcao nao encontrada!\n\n");
+			break;
+		}
+		
+		printf("Deseja fazer outra pesquisa: 1 - SIM e 2 - NAO: ");
+		scanf("%d", &op);
+	
+    }while(op == 1);
+	
+}
+
+void imprimirBilhete(Bilhete bilhete, Filme filmes[FILMES]){
+		printf("\n-------- Bilhetes Reservado --------\n");
+		printf("\nBilhete ID: %d\n", bilhete.bilheteID);
+		printf("Cliente: %s\n", bilhete.nomeCliente);
+		printf("Filme: %s\n", filmes[bilhete.filmeID].nome);
+		printf("Assento: Fila %d, Coluna %d\n", bilhete.fila + 1, bilhete.coluna + 1);
+		printf("Meia Entrada: %s\n", bilhete.meiaEntrada ? "Sim" : "Nao");
+		printf("Combo: %s\n", bilhete.combo ? "Sim" : "Nao");
+		printf("Valor Total: R$ %.2f\n", bilhete.valorIngresso);  
+		printf("-------------------------------------\n\n"); 
 }
 
 
